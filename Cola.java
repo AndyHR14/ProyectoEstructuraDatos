@@ -1,27 +1,27 @@
 package jugadores;
 
 public class Cola {
-    private NodoCola frente;
-    private NodoCola finalCola;
+    private NodosCola frente;
+    private NodosCola finalCola;
 
-    public NodoCola getFrente() {
+    public NodosCola getFrente() {
         return frente;
     }
 
-    public void setFrente(NodoCola frente) {
+    public void setFrente(NodosCola frente) {
         this.frente = frente;
     }
 
-    public NodoCola getFinalCola() {
+    public NodosCola getFinalCola() {
         return finalCola;
     }
 
-    public void setFinalCola(NodoCola finalCola) {
+    public void setFinalCola(NodosCola finalCola) {
         this.finalCola = finalCola;
     }
     
     public void encolarPartida(String partida){
-        NodoCola nuevoNodo = new NodoCola(partida);
+        NodosCola nuevoNodo = new NodosCola(partida);
         if(this.frente == null){
             this.frente = nuevoNodo;
             this.finalCola = nuevoNodo;
@@ -30,10 +30,18 @@ public class Cola {
             this.setFinalCola(nuevoNodo);
         }
     }
-    public NodoCola partidaEnProgreso(){
-        NodoCola actual = this.frente;
+    public NodosCola partidaEnProgreso(){
+        NodosCola actual = this.frente;
         this.frente = actual.getAtras();
         actual.setAtras(null);
         return actual;
+    }
+    public void imprimirCola() {
+        NodosCola actual = this.frente;
+        while (actual != null) {
+            System.out.println(actual.getPartida() + " ");
+            actual = actual.getAtras();
+        }
+        System.out.println();
     }
 }
