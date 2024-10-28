@@ -1,10 +1,10 @@
 package jugadores;
 
-public class NodoCola {
+public class NodosCola {
     private String partida;
-    private NodoCola atras;
+    private NodosCola atras;
 
-    public NodoCola(String partida) {
+    public NodosCola(String partida) {
         this.partida = partida;
     }
 
